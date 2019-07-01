@@ -1,0 +1,100 @@
+<% include ../partials/head %>
+
+<body>
+
+  <div class="container d-flex h-100 p-3 mx-auto flex-column">
+
+    <% include ../partials/menu %>
+
+    <h5 class="flipInX"><i class="fas fa-plus"></i> Ajout d'une vente</h5>
+
+    <form action="/ventes/ajout" method="POST">
+
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="libelle">libelle</label>
+            <input type="text" class="form-control" id="libelle" name="libelle" placeholder="Enter libelle" required>
+
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="reference">reference</label>
+            <input type="text" class="form-control" id="reference" name="reference" placeholder="Entrer reference"
+              required>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6">
+          <!-- Quantite -->
+          <div class="form-group">
+            <label for="quantite">quantite</label>
+            <input type="number" class="form-control" id="quantite" name="quantite" placeholder="Entrer quantite"
+              required>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="prixUnitaire">prix Unitaire</label>
+            <input type="text" class="form-control" id="prixUnitaire" name="prixUnitaire"
+              placeholder="Entrer prix unitaire" required>
+          </div>
+        </div>
+      </div>
+
+      <!-- total -->
+      <div class="form-group">
+        <label for="total">total</label>
+        <input type="text" class="form-control" id="total" name="total" placeholder="Entrer total" required>
+      </div>
+
+      <!-- total -->
+      <div class="form-group">
+        <label for="dateVente">date Vente</label>
+        <input type="date" class="form-control" id="dateVente" name="dateVente" placeholder="Entrer dateVente" required>
+      </div>
+
+      <% if(locals.clients ) { %>
+      <div class="form-group">
+        <label for="client">Clients</label>
+        <select class="form-control" id="client" name="client">
+          <% for(let c of clients) { %>
+          <option value="<%= c.client_id %>"><%= c.nom_complet %></option>
+          <%  } %>
+        </select>
+      </div>
+      <% } %>
+
+
+      <div class="float-right">
+        <button type="reset" class="btn btn-danger">vider</button>
+        <button type="submit" class="btn btn-primary">
+          <i class="fas fa-plus"></i>AJOUTER
+        </button>
+      </div>
+
+    </form>
+
+
+    <% if(locals.msg) { %>
+    <div class="alert alert-warning alert-dismissible fade show mt-3" role="alert">
+      <%= msg %>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <% } %>
+
+
+    <% include ../partials/footer %>
+  </div>
+
+
+</body>
+
+</html>

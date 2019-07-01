@@ -1,0 +1,52 @@
+<% include ../partials/head %>
+
+<body>
+
+  <div class="container d-flex h-100 p-3 mx-auto flex-column">
+
+    <% include ../partials/menu %>
+
+    <h5 class="flipInX"><i class="fas fa-stream"></i> Liste des clients</h5>
+
+    <% if(locals.data && locals.data.length > 0) { let i = 1 %>
+    <table class="table table-hover table-light">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Nom complet</th>
+          <th scope="col">ville</th>
+          <th scope="col">tel</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% for(let c of locals.data) { %>
+        <tr>
+          <th scope="row"><%= i++ %></th>
+          <td><%= c.nom_complet %></td>
+          <td><%= c.ville %></td>
+          <td><%= c.tel %></td>
+          <td>
+            <a href="/clients/modifier?c=<%= c.client_id %>" class="btn btn-success">m</a>
+            <a href="/clients/supprimer?c=<%= c.client_id %>" class="btn btn-danger">s</a>
+          </td>
+        </tr>
+        <% } %>
+      </tbody>
+    </table>
+    <% } else { %>
+    <div class="alert alert-warning alert-dismissible fade show mt-3" role="alert">
+      aucun client trouvé, merci de ressayez plus tard..
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <% } %>
+
+    <% include ../partials/footer %>
+  </div>
+
+
+</body>
+
+</html>

@@ -1,0 +1,112 @@
+<% include ../partials/head %>
+
+<body>
+
+  <div class="container d-flex h-100 p-3 mx-auto flex-column">
+
+    <% include ../partials/menu %>
+
+    <h5 class="flipInX">suppression d'une vente</h5>
+
+    <% if(locals.data) { %>
+    <form action="/ventes/supprimer" method="POST" id="form-delete-vente">
+
+      <input type="text" class="form-control" id="venteId" 
+            name="venteId" value="<%= locals.data.vente_id %>" required hidden readonly>
+
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="libelle">libelle</label>
+            <input type="text" class="form-control" id="libelle" 
+            name="libelle" value="<%= locals.data.libelle %>" required readonly>
+
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="reference">reference</label>
+            <input type="text" class="form-control" id="reference" name="reference" 
+            value="<%= locals.data.reference %>"
+              required readonly>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6">
+          <!-- Quantite -->
+          <div class="form-group">
+            <label for="quantite">quantite</label>
+            <input type="number" class="form-control" id="quantite" name="quantite" 
+            value="<%= locals.data.quantite %>"
+            required readonly>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="prixUnitaire">prix Unitaire</label>
+            <input type="text" class="form-control" id="prixUnitaire" name="prixUnitaire"
+            value="<%= locals.data.prix_unitaire %>"
+            required readonly>
+          </div>
+        </div>
+      </div>
+
+      <!-- total -->
+      <div class="form-group">
+        <label for="total">total</label>
+        <input type="text" class="form-control" id="total" name="total" 
+        value="<%= locals.data.total %>"
+              required readonly>
+      </div>
+
+      <!-- total -->
+      <div class="form-group">
+        <label for="dateVente">date Vente</label>
+        <input type="date" class="form-control" id="dateVente" name="dateVente" 
+        value="<%= locals.data.date_vente %>"
+              required readonly>
+      </div>
+
+      <% if(locals.clients ) { %>
+      <div class="form-group">
+        <label for="client" class="w-100">Clients 
+          <span class="badge badge-primary float-right"><%= locals.data.nom_complet %></span>
+        </label>
+        <select class="form-control" id="client" name="client" required readonly>
+          <% for(let c of clients) { %>
+          <option value="<%= c.client_id %>"><%= c.nom_complet %></option>
+          <%  } %>
+        </select>
+      </div>
+      <% } %>
+
+
+      <div class="float-right">
+        <button type="reset" class="btn btn-danger">vider</button>
+        <button type="submit" class="btn btn-primary">supprimer</button>
+      </div>
+
+    </form>
+    <% } %>
+
+    <% if(locals.msg) { %>
+    <div class="alert alert-warning alert-dismissible fade show mt-3" role="alert">
+      <%= msg %>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <% } %>
+
+
+    <% include ../partials/footer %>
+  </div>
+
+
+</body>
+
+</html>

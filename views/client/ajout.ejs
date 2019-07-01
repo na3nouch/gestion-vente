@@ -1,0 +1,55 @@
+<% include ../partials/head %>
+
+<body>
+
+  <div class="container d-flex h-100 p-3 mx-auto flex-column">
+
+    <% include ../partials/menu %>
+
+    <h5 class="flipInX"><i class="fas fa-plus"></i> Ajout d'un client</h5>
+
+    <form action="/clients/ajout" method="POST">
+      <div class="form-group">
+        <label for="nomComplet">Nom complet</label>
+        <input type="text" class="form-control" id="nomComplet" name="nomComplet" placeholder="Enter nom complet"
+          required>
+
+      </div>
+
+      <div class="form-group">
+        <label for="ville">Ville</label>
+        <input type="text" class="form-control" id="ville" name="ville" placeholder="Entrer ville" required>
+      </div>
+
+      <div class="form-group">
+        <label for="tel">Tel</label>
+        <input type="text" class="form-control" id="tel" name="tel" placeholder="Entrer numero telephone" required>
+      </div>
+
+      <div class="float-right">
+        <button type="reset" class="btn btn-danger">vider</button>
+        <button type="submit" class="btn btn-primary">
+          <i class="fas fa-plus"></i>AJOUTER
+        </button>
+      </div>
+
+    </form>
+
+
+    <% if(locals.msg) { %>
+    <div class="alert alert-warning alert-dismissible fade show mt-3" role="alert">
+      <%= msg %>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <% } %>
+
+
+    <% include ../partials/footer %>
+  </div>
+
+
+</body>
+
+</html>

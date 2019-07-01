@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Facturation</title>
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="/stylesheets/style.css">
+
+  <link href="https://fonts.googleapis.com/css?family=Pacifico|Roboto&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <div class="container d-flex flex-column align-items-center mt-3">
+
+    <form action="/auth/login" method="POST" class="form-signin vertical-center mx-auto" style="max-width: 500px">
+
+      <h2 class="flipInX text-center mb-5">SE CONNECTER</h2>
+
+      <label for="email" class="sr-only">Email address</label>
+      <input type="email" id="email" name="email" class="form-control" placeholder="Entrer votre adresse email" required
+        autofocus>
+
+      <label for="password" class="sr-only">Password</label>
+      <input type="password" id="password" name="password" class="form-control" placeholder="Entrer votre mot de passe"
+        required>
+
+
+      <button class="btn btn-lg btn-primary btn-block mt-3" type="submit">connexion</button>
+
+
+    </form>
+
+    <% if(locals.msg) { %>
+    <div class="alert alert-warning alert-dismissible fade show mt-3" role="alert">
+      <%= msg %>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <% } %>
+
+    
+  </div>
+
+</body>
+
+</html>

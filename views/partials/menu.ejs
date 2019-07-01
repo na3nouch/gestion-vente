@@ -1,0 +1,48 @@
+<nav class="navbar navbar-expand-lg p-0 mb-3">
+  <a class="navbar-brand pt-0" href="/">
+    <i class="fab fa-hornbill"></i> Facturation
+  </a>
+
+  <ul class="navbar-nav mr-auto">
+    <li class="nav-item active">
+      <a class="nav-link" href="/">Acceuil</a>
+    </li>
+
+
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle vv" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+        aria-haspopup="true" aria-expanded="false"> ventes</a>
+      <div class="tracking-in-expand dropdown-menu v" aria-labelledby="navbarDropdown">
+        <a class="dropdown-item" href="/ventes/ajout"><i class="fas fa-plus"></i> Ajouter une vente</a>
+        <a class="dropdown-item" href="/ventes/liste"><i class="fas fa-stream"></i> Liste des ventes</a>
+      </div>
+    </li>
+
+
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle cc" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+        aria-haspopup="true" aria-expanded="false"> Clients</a>
+      <div class="tracking-in-expand dropdown-menu c" aria-labelledby="navbarDropdown">
+        <a class="dropdown-item" href="/clients/ajout"><i class="fas fa-plus"></i> Ajouter une client</a>
+        <a class="dropdown-item" href="/clients/liste"><i class="fas fa-stream"></i> Liste des clients</a>
+      </div>
+    </li>
+  </ul>
+
+
+  <ul class="navbar-nav ml-auto">
+
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle pp" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+        aria-haspopup="true" aria-expanded="false">
+        <i class="fas fa-user"></i> <%= locals.userInfo.nom_complet %>
+      </a>
+      <div class="tracking-in-expand dropdown-menu p" aria-labelledby="navbarDropdown">
+        <a class="dropdown-item" href="/profile">PROFILE</a>
+        <a class="dropdown-item" href="/auth/logout">DECONNEXION</a>
+      </div>
+    </li>
+  </ul>
+
+
+</nav>

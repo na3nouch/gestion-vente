@@ -1,0 +1,66 @@
+<% include ../partials/head %>
+
+<body>
+
+  <div class="container d-flex h-100 p-3 mx-auto flex-column">
+
+    <% include ../partials/menu %>
+
+    <% if(locals.data && locals.data.length > 0) { let i = 1 %>
+    <h5 class="flipInX w-100">
+      <i class="fas fa-stream"></i> Liste des ventes
+      <span class="badge badge-secondary float-right">
+        <%= locals.data.length %>
+      </span>
+    </h5>
+
+
+    <table class="table table-hover table-light">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Libelle</th>
+          <th scope="col">reference</th>
+          <th scope="col">quantite</th>
+          <th scope="col">prix unitaire</th>
+          <th scope="col">total</th>
+          <th scope="col">date</th>
+          <th scope="col">client</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% for(let c of locals.data) { %>
+        <tr>
+          <th scope="row"><%= i++ %></th>
+          <td><%= c.libelle %></td>
+          <td><%= c.reference %></td>
+          <td><%= c.quantite %></td>
+          <td><%= c.prix_unitaire %></td>
+          <td><%= c.total %></td>
+          <td><%= c.date_vente %></td>
+          <td><%= c.nom_complet %></td>
+          <td>
+            <a href="/ventes/modifier?c=<%= c.vente_id %>" class="btn btn-success">m</a>
+            <a href="/ventes/supprimer?c=<%= c.vente_id %>" class="btn btn-danger">s</a>
+          </td>
+        </tr>
+        <% } %>
+      </tbody>
+    </table>
+    <% } else { %>
+    <div class="alert alert-warning alert-dismissible fade show mt-3" role="alert">
+      aucun vente trouvée, merci de ressayez plus tard..
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <% } %>
+
+    <% include ../partials/footer %>
+  </div>
+
+
+</body>
+
+</html>

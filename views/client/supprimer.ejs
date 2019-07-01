@@ -1,0 +1,63 @@
+<% include ../partials/head %>
+
+<body>
+
+  <div class="container d-flex h-100 p-3 mx-auto flex-column">
+
+    <% include ../partials/menu %>
+
+    <h5 class="flipInX">suppression d'un client</h5>    
+
+    <% if(locals.data) { %>
+    <form action="/clients/supprimer" method="POST" id="form-delete-client">
+
+      <input type="text" class="form-control" id="client-id" name="clientid" 
+        value="<%= locals.data.client_id %>"
+          required readonly hidden>
+
+
+      <div class="form-group">
+        <label for="nomComplet">Nom complet</label>
+        <input type="text" class="form-control" id="nomComplet" name="nomComplet" 
+        value="<%= locals.data.nom_complet %>"
+          required readonly>
+
+      </div>
+
+      <div class="form-group">
+        <label for="ville">Ville</label>
+        <input type="text" class="form-control" id="ville" name="ville" 
+        value="<%= locals.data.ville %>" required readonly>
+      </div>
+
+      <div class="form-group">
+        <label for="tel">Tel</label>
+        <input type="text" class="form-control" id="tel" name="tel" 
+        value="<%= locals.data.tel %>" required readonly>
+      </div>
+
+      <div class="float-right">
+        <button type="reset" class="btn btn-danger">vider</button>
+        <button type="submit" class="btn btn-primary">supprimer</button>
+      </div>
+
+    </form>
+    <% } %>
+
+    <% if(locals.msg) { %>
+    <div class="alert alert-warning alert-dismissible fade show mt-3" role="alert">
+      <%= msg %>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <% } %>
+
+
+    <% include ../partials/footer %>
+  </div>
+
+
+</body>
+
+</html>
