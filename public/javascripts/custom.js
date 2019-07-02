@@ -1,5 +1,12 @@
 document.addEventListener("DOMContentLoaded", () => {
 
+  // api
+  var baseURL = window.location.href.split("/");
+
+  function checkURL(basePath, key) {
+    return baseURL.includes(basePath) && baseURL.some(i => i.startsWith(key))
+  }
+  // end api
 
   const btnStat = document.getElementById("btn-stat");
   const myChart = document.getElementById("myChart");
@@ -23,14 +30,6 @@ document.addEventListener("DOMContentLoaded", () => {
   toggle(".pp", ".p");
   
 
-
-
-
-  var baseURL = window.location.href.split("/");
-
-  function checkURL(basePath, key) {
-    return baseURL.includes(basePath) && baseURL.some(i => i.startsWith(key))
-  }
 
   if (checkURL("clients", "supprimer")) {
 
