@@ -23,7 +23,7 @@ router.post('/', redirectLogin, (req, res) => {
       service: 'outlook',
       host: 'SMTP.office365.com',
       port: 587,
-      secure: true,
+      secure: false,
       auth: { user: email.trim(), pass: 'WxC 0123$^p' }
     });
 
