@@ -33,7 +33,7 @@ router.post('/', redirectLogin, (req, res) => {
 
     transporter.sendMail(mailOptions, function (error, info) {
       if (error) {
-        res.render('contact', { msg: "erreur d'envoie, merci d'essayer plus tard!", data: user });
+        res.render('contact', { msg: error, data: user });
       } else {
         res.render('contact', { msg: "un email a été bien envoyé", data: user });
       }
