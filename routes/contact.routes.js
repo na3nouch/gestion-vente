@@ -21,11 +21,11 @@ router.post('/', redirectLogin, (req, res) => {
     // haikel.fazzanii@outlook.fr
     let transporter = nodemailer.createTransport({
       service: 'outlook',
-      auth: { user: email, pass: 'WxC 0123$^p' }
+      auth: { user: email.trim(), pass: 'WxC 0123$^p' }
     });
 
     let mailOptions = {
-      from: email, to: emailDest.trim(), subject: sujet.trim(), text: message.trim()
+      from: email.trim(), to: emailDest.trim(), subject: sujet.trim(), text: message.trim()
     };
 
     transporter.sendMail(mailOptions, function (error, info) {
