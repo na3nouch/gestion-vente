@@ -27,16 +27,15 @@
     <form action="/auth/login" method="POST" class="form-signin w-100 mx-auto" style="max-width: 500px">
 
       <div class="form-group">
-      <label for="email">Email address</label>
-      <input type="email" id="email" name="email" class="form-control mb-3" placeholder="Entrer votre adresse email" required
-        autofocus>
+        <label for="email">Email address</label>
+        <input type="email" id="email" name="email" class="form-control mb-3" placeholder="Entrer votre adresse email"
+          required autofocus>
       </div>
 
       <div class="form-group">
-      <label for="password">Mot de passe</label>
-      <input type="password" id="password" name="password" 
-      class="form-control" placeholder="Entrer votre mot de passe"
-        required>
+        <label for="password">Mot de passe</label>
+        <input type="password" id="password" name="password" class="form-control"
+          placeholder="Entrer votre mot de passe" required>
       </div>
 
 
@@ -46,15 +45,10 @@
     </form>
 
     <% if(locals.msg) { %>
-    <div class="alert alert-warning alert-dismissible fade show mt-3" role="alert">
-      <%= msg %>
-      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
+    <div id="snackbar"><%= msg %></div>
     <% } %>
 
-    
+
   </div>
 
 </body>

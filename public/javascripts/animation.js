@@ -1,5 +1,13 @@
 document.addEventListener("DOMContentLoaded", () => {
 
+  // snackbar
+  (function () {
+    const x = document.getElementById("snackbar");
+    x.className = "show";
+    setTimeout(function () { x.className = x.className.replace("show", ""); }, 3000);
+  }());
+
+
   let i = 0;
   const txt = 'Espace reservée pour la gestion des factures.';
   const speed = 50;
