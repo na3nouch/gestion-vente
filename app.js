@@ -47,6 +47,7 @@ app.use('/', require('./routes/home.routes'));
 app.use('/auth', require('./routes/auth.routes'));
 app.use('/ventes', require('./routes/vente.routes'));
 app.use('/clients', require('./routes/client.routes'));
+app.use('/contact', require('./routes/contact.routes'));
 
 app.get("*", (req, res) => res.redirect("/"));
 
