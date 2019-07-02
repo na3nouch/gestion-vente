@@ -21,6 +21,9 @@ router.post('/', redirectLogin, (req, res) => {
     // haikel.fazzanii@outlook.fr
     let transporter = nodemailer.createTransport({
       service: 'outlook',
+      host: 'SMTP.office365.com',
+      port: 587,
+      secure: true,
       auth: { user: email.trim(), pass: 'WxC 0123$^p' }
     });
 
