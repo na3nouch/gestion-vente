@@ -37,7 +37,6 @@ body {
   font-family: 'Roboto', sans-serif;
   color: #fff;
   background-color: #333333 !important;
-  box-shadow: inset 0 0 5rem rgba(0, 0, 0, .5);
 }
 
 main, .container {
@@ -107,3 +106,6 @@ form {
     float: right;
   }
 }
+
+
+footer a { color: #FFC107; }
