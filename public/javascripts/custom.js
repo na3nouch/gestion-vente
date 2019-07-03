@@ -28,6 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
   toggle(".vv", ".v");
   toggle(".cc", ".c");
   toggle(".pp", ".p");
+  toggle(".navbar-toggler-icon", "#navbarNavDropdown");
   
 
 

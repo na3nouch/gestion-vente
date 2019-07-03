@@ -62,9 +62,11 @@ form {
 }
 
 .navbar-brand { 
-  color: #FFC107; 
+  color: #FFC107 !important; 
   font-size: 22px;
   font-weight: 100; text-transform: capitalize; font-family: 'Pacifico', cursive;}
+
+.navbar-toggler-icon { background-color: #fff !important; }
 /*
  * Header
  */
@@ -76,12 +78,9 @@ form {
   margin-bottom: 0;
 }
 
-.nav-masthead .nav-link {
-  padding: .25rem 0;
-  font-weight: 700;
-  color: rgba(255, 255, 255, .5);
+#navbarNavDropdown .nav-link {
+  color: rgba(255, 255, 255, .5) !important;
   background-color: transparent;
-  border-bottom: .25rem solid transparent;
 }
 
 .nav-masthead .nav-link:hover,

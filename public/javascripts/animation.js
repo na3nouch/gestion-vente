@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // snackbar
   (function () {
     const x = document.getElementById("snackbar");
-    x.className = "show";
+    x ? x.className = "show" : "";
     setTimeout(function () { x.className = x.className.replace("show", ""); }, 5000);
   }());
 
