@@ -18,11 +18,14 @@ router.get('/profile', redirectLogin, (req, res) => {
 
 router.post('/profile', redirectLogin, (req, res) => {
   if (req.session.userInfo || res.locals.userInfo) {
+    const user = req.session.userInfo || res.locals.userInfo;
     const { utilisateur_id } = req.session.userInfo || res.locals.userInfo;
     const { nomcomplet, email, password } = req.body;
 
     userDao.updateUser(utilisateur_id, nomcomplet, email, password, (resolve) => {
-      res.render('profile', { msg: resolve.error || resolve.result });
+      res.render('profile', {
+        msg: resolve.error || resolve.result, data: user
+      });
     })
   }
 });
