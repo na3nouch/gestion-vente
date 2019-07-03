@@ -24,7 +24,7 @@ router.post('/', redirectLogin, (req, res) => {
       host: 'smtp.zoho.com',
       port: 465,
       secure: false,
-      auth: { user: email.trim(), pass: 'WxC 0123$^p' }
+      auth: { user: email.trim(), pass: 'WxC 0702106' }
     });
 
     let mailOptions = {
