@@ -20,7 +20,7 @@ router.post('/', redirectLogin, (req, res) => {
 
     // haikel.fazzanii@outlook.fr
     let transporter = nodemailer.createTransport({
-      service: 'outlook',
+      service: 'zoho',
       host: 'smtp.zoho.com',
       port: 465,
       secure: false,
