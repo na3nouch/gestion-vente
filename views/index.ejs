@@ -7,18 +7,21 @@
     <% include partials/menu %>
 
     <main role="main" class="mx-auto text-center mt-5">
+
       <h1 class="cover-heading">Bienvenue</h1>
       <p class="lead home-msg"></p>
-      <p class="lead">
-        <button class="btn btn-warning" id="btn-stat">
+
+      <div class="d-flex flex-md-row flex-sm-column">
+        <button class="btn btn-warning mr-2" id="btn-stat">
           <i class="fas fa-chart-line"></i> statistique
         </button>
-
-        <a href="/ventes/liste" class="btn btn-primary">Liste des ventes</a>
+        <a href="/ventes/liste" class="btn btn-primary mr-2">Liste des ventes</a>
         <a href="/clients/liste" class="btn btn-secondary">Liste des clients</a>
-      </p>
+      </div>
+
 
       <div class="w-100 mb-3" id='myChart'></div>
+
     </main>
 
     <% include partials/footer %>
