@@ -6,6 +6,7 @@ const bodyParser = require("body-parser");
 const cookieParser = require('cookie-parser');
 const expressSession = require("express-session");
 const logger = require('morgan');
+const fileUpload = require("express-fileupload");
 
 var app = express();
 
@@ -45,9 +46,20 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Routing
 app.use('/', require('./routes/home.routes'));
 app.use('/auth', require('./routes/auth.routes'));
+
 app.use('/ventes', require('./routes/vente.routes'));
 app.use('/clients', require('./routes/client.routes'));
 app.use('/contact', require('./routes/contact.routes'));
+
+// avatar upload
+app.use(fileUpload({
+  //limits: { fileSize: 50 * 1024 * 1024 },
+  useTempFiles: true,
+  tempFileDir: '/tmp/'
+}));
+
+app.use('/profile', require('./routes/profile.routes'));
+
 
 app.get("*", (req, res) => res.redirect("/"));
 

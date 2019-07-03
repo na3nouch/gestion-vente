@@ -2,9 +2,9 @@ const mysql = require('mysql');
 
 const remoteDB = {
     host: 'remotemysql.com',
-    user: 'LPx4ioQKlk',
-    password: 'V638WJNvfq',
-    database: 'LPx4ioQKlk'
+    user: 'fP7lD5SXM0',
+    password: 'EwJqj1myrj',
+    database: 'fP7lD5SXM0'
 };
 
 
