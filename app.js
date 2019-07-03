@@ -6,7 +6,6 @@ const bodyParser = require("body-parser");
 const cookieParser = require('cookie-parser');
 const expressSession = require("express-session");
 const logger = require('morgan');
-const fileUpload = require("express-fileupload");
 
 var app = express();
 
@@ -26,6 +25,9 @@ app.use(expressSession({
 app.use(async (req, res, next) => {
   if (req.session && req.session.userInfo) {
     res.locals.userInfo = req.session.userInfo;
+  }
+  if (req.session && req.session.avatar) {
+    res.locals.avatar = req.session.avatar;
   }
   await next();
 });
@@ -50,13 +52,6 @@ app.use('/auth', require('./routes/auth.routes'));
 app.use('/ventes', require('./routes/vente.routes'));
 app.use('/clients', require('./routes/client.routes'));
 app.use('/contact', require('./routes/contact.routes'));
-
-// avatar upload
-app.use(fileUpload({
-  //limits: { fileSize: 50 * 1024 * 1024 },
-  useTempFiles: true,
-  tempFileDir: '/tmp/'
-}));
 
 app.use('/profile', require('./routes/profile.routes'));
 

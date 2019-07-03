@@ -6,6 +6,25 @@ document.addEventListener("DOMContentLoaded", () => {
     return urlPath.includes(basePath) && urlPath.includes(key)
   }
 
+  // input avatar display image before upload
+  if (includePath("profile", "")) {
+
+    const inputAvatar = document.getElementById("input-avatar");
+    const imgSrc = document.querySelector(".img-profile");
+    const fileContainer = document.querySelector(".fileContainer");
+    const btnAvatar = document.getElementById("btn-avatar");
+
+    btnAvatar.disabled = true;
+
+    inputAvatar.onchange = () => {
+      fileContainer.textContent = inputAvatar.files[0].name;
+      fileContainer.style.backgroundColor = "#ffc107";
+      imgSrc.src = URL.createObjectURL(inputAvatar.files[0]);
+      btnAvatar.className = "btn btn-outline-success btn-block";
+      btnAvatar.disabled = false;
+    }
+  }
+
   // snackbar
   if (includePath("profile", "") || includePath("ajout", "")) {
     (function () {
