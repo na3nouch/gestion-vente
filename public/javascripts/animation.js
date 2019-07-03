@@ -1,12 +1,19 @@
 document.addEventListener("DOMContentLoaded", () => {
 
+  var urlPath = window.location.href.split("/");
+
+  function includePath(basePath, key) {
+    return urlPath.includes(basePath) && urlPath.includes(key)
+  }
+
   // snackbar
   (function () {
     const x = document.getElementById("snackbar");
-    x ? x.className = "show" : "";
-    setTimeout(function () { x.className = x.className.replace("show", ""); }, 5000);
-  });
-
+    x.className = "show";
+    setTimeout(function () {
+      x.className = x.className.replace("show", "");
+    }, 3000);
+  }());
 
   let i = 0;
   const txt = 'Espace reservée pour la gestion des factures.';
