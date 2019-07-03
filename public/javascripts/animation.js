@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // snackbar
-  if (includePath("profile") || includePath("ajout")) {
+  if (includePath("profile", "") || includePath("ajout", "")) {
     (function () {
       const x = document.getElementById("snackbar");
       x.className = "show";
