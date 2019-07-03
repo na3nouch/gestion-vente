@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const x = document.getElementById("snackbar");
     x ? x.className = "show" : "";
     setTimeout(function () { x.className = x.className.replace("show", ""); }, 5000);
-  }());
+  });
 
 
   let i = 0;
