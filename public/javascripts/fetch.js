@@ -1,17 +1,20 @@
-document.addEventListener("DOMContentLoaded", () => {
+window.onload = () => {
 
-  const mode = "prod";
+  const isLocalFetch = false;  
+  const modeFetch = isLocalFetch ? "http://localhost:3000/ventes/liste-vente":
+  "https://gestion-vente.herokuapp.com/ventes/liste-vente";
 
   const months = [
     "jan", "fév", "mars", "avril", "mai", "juin", "juil", "août", "sep", "oct", "nov", "déc"
   ];
 
-  fetch(mode === "dev" ? "http://localhost:3000/ventes/liste-vente":
-  "https://gestion-vente.herokuapp.com/ventes/liste-vente")
+  fetch(modeFetch)
     .then(res => res.json())
     .then(data => {
       let date = new Date(data[0].date_vente);
       let grpData = [];
+
+      console.log(modeFetch)
 
       data.map((d, i) => {
         let date = new Date(d.date_vente).getMonth();
@@ -53,4 +56,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
     })
     .catch(err => console.log(err))
-});
+};
