@@ -6,7 +6,7 @@
 
     <% include ../partials/menu %>
 
-    <h5 class="flipInX">suppression d'une vente</h5>
+    <h5 class="flipInX"><i class="fas fa-recycle"></i> suppression d'une vente</h5>
 
     <% if(locals.data) { %>
     <form action="/ventes/supprimer" method="POST" id="form-delete-vente">
@@ -82,13 +82,15 @@
 
       <div class="float-right">
         <button type="reset" class="btn btn-danger">vider</button>
-        <button type="submit" class="btn btn-primary">supprimer</button>
+        <button type="submit" class="btn btn-primary">
+          <i class="fas fa-trash-alt"></i> supprimer
+        </button>
       </div>
 
     </form>
     <% } %>
 
-    
+
     <% include ../common/alert-message %>
 
 

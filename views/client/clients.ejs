@@ -6,9 +6,15 @@
 
     <% include ../partials/menu %>
 
-    <h5 class="flipInX"><i class="fas fa-stream"></i> Liste des clients</h5>
-
     <% if(locals.data && locals.data.length > 0) { let i = 1 %>
+    <h5 class="flipInX">
+      <i class="fas fa-stream"></i> Liste des clients
+      <span class="badge badge-secondary float-right">
+        <%= locals.data.length %>
+      </span>
+    </h5>
+
+
     <table class="table table-hover table-light">
       <thead class="thead-dark">
         <tr>
