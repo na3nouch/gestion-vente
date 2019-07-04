@@ -67,15 +67,17 @@ router.post("/supprimer", redirectLogin, (req, res) => {
 
 
 
-/** Ajout vente */
+/** liste des ventes */
 router.get("/liste", redirectLogin, (req, res) => {
   venteDao.getVentes(resolve => {
     res.render("vente/ventes", { data: resolve.result });
   });
 });
 
-router.get("/liste-vente", (req, res) => {
-  venteDao.getVentes(resolve => res.status(200).json(resolve.result));
+router.get("/liste-vente", (req, res) => {  
+  venteDao.getVentes((resolve) => {
+    res.status(200).json(resolve.result)
+  });
 });
 
 module.exports = router;

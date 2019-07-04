@@ -6,12 +6,10 @@
 
     <% include partials/menu %>
 
-    <main role="main" class="mx-auto text-center mt-5">
+      <h1 class="text-center cover-heading mt-5">Bienvenue</h1>
+      <p class="text-center lead home-msg"></p>
 
-      <h1 class="cover-heading">Bienvenue</h1>
-      <p class="lead home-msg"></p>
-
-      <div class="d-flex flex-md-row flex-sm-column">
+      <div class="d-flex flex-md-row flex-sm-column justify-content-center">
         <button class="btn btn-warning mr-2" id="btn-stat">
           <i class="fas fa-chart-line"></i> statistique
         </button>
@@ -19,10 +17,7 @@
         <a href="/clients/liste" class="btn btn-secondary">Liste des clients</a>
       </div>
 
-
       <div class="w-100 mt-3 mb-3" id='myChart'></div>
-
-    </main>
 
     <% include partials/footer %>
   </div>
