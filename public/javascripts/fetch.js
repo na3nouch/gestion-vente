@@ -11,8 +11,9 @@ document.addEventListener("DOMContentLoaded", () => {
   fetch(modeFetch)
     .then(res => res.json())
     .then(data => {
+      console.log(modeFetch)
       let date = new Date(data[0].date_vente);
-      let grpData = [];
+      let grpData = [];      
 
       data.map((d, i) => {
         let date = new Date(d.date_vente).getMonth();
