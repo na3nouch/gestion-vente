@@ -1,8 +1,8 @@
 window.onload = () => {
 
   const isLocalFetch = false;  
-  const modeFetch = isLocalFetch ? "http://localhost:3000/ventes/liste-vente":
-  "https://gestion-vente.herokuapp.com/ventes/liste-vente";
+  const modeFetch = isLocalFetch ? "http://localhost:3000/ventes/liste-ventes":
+  "https://gestion-vente.herokuapp.com/ventes/liste-ventes";
 
   const months = [
     "jan", "fév", "mars", "avril", "mai", "juin", "juil", "août", "sep", "oct", "nov", "déc"
@@ -11,7 +11,6 @@ window.onload = () => {
   fetch(modeFetch)
     .then(res => res.json())
     .then(data => {
-      let date = new Date(data[0].date_vente);
       let grpData = [];
 
       console.log(modeFetch)
