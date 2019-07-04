@@ -1,6 +1,5 @@
 <% if(locals.avatar) { %>
-<img src="<%= locals.avatar %>" alt="..." 
-class="img-profile img-thumbnail rounded mx-auto d-block mb-3">
+<img src="<%= locals.avatar %>" alt="..." class="img-profile img-thumbnail rounded mx-auto d-block mb-3">
 <% } %>
 
 <form action="/profile/avatar" method="post" enctype="multipart/form-data">
@@ -15,7 +14,7 @@ class="img-profile img-thumbnail rounded mx-auto d-block mb-3">
 
 
     <button class="btn btn-outline-secondary btn-block" type="submit" id="btn-avatar">
-      Changer
+      <i class="fas fa-upload"></i> Changer
     </button>
 
 

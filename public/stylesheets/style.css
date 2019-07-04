@@ -54,11 +54,11 @@ h5 {
     font-size: 17px;
 }
 
-form {
-  background-color: #2b2b2b;
+.form-contact {
+  background-color: #5a5a5a;
   padding: 20px;
   border-radius: 5px;
-  margin-bottom: 20px;
+  border: 2px solid #ababab;
 }
 
 .navbar-brand { 

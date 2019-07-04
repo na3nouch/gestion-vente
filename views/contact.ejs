@@ -9,7 +9,7 @@
     <h5 class="flipInX"><i class="fas fa-envelope-open-text"></i> Contact</h5>
 
     <% if(locals.data) { %>
-    <form action="/contact" method="POST">
+    <form action="/contact" method="POST" class="form-contact">
 
       <div class="form-group">
         <label for="email">email</label>
@@ -34,11 +34,13 @@
         <textarea class="form-control msg-contact" id="message" name="message" rows="3"></textarea>
       </div>
 
-
-      <button class="btn btn-primary float-right" type="submit">
+      <button class="btn btn-warning float-right" type="submit">
         <i class="fas fa-paper-plane"></i> Envoyer
       </button>
 
+      <button class="btn btn-danger float-right mr-2" type="reset">
+        <i class="fas fa-trash-alt"></i> vider
+      </button>
 
     </form>
     <% } %>
