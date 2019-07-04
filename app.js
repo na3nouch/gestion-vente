@@ -1,6 +1,5 @@
 var createError = require('http-errors');
 const express = require('express');
-const cors = require("cors");
 var path = require('path');
 const bodyParser = require("body-parser");
 const cookieParser = require('cookie-parser');
@@ -9,7 +8,16 @@ const logger = require('morgan');
 
 var app = express();
 
+// security
+const cors = require("cors");
+const helmet = require('helmet');
+
 app.use(cors("*"));
+app.use(helmet.noSniff());
+app.use(helmet.xssFilter());
+app.use(helmet.hidePoweredBy({ setTo: 'Haikel Fazzani :)' }));
+//app.use(helmet.frameguard({ action: 'sameorigin' }));
+
 
 // sessions
 app.use(expressSession({
