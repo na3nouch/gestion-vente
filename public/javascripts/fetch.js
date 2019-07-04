@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-  const isLocalFetch = true;  
+  const isLocalFetch = false;  
   const modeFetch = isLocalFetch ? "http://localhost:3000/ventes/liste-ventes":
   "https://gestion-vente.herokuapp.com/ventes/liste-ventes";
 
