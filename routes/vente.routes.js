@@ -74,7 +74,7 @@ router.get("/liste", redirectLogin, (req, res) => {
   });
 });
 
-router.get("/liste-ventes", (req, res) => {  
+router.get("/liste-ventes", redirectLogin, (req, res) => {
   venteDao.getVentes((resolve) => {
     res.status(200).json(resolve.result)
   });
