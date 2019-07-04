@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // api
   var baseURL = window.location.href.split("/");
 
-  function checkURL(basePath, key) {
+  var checkURL = (basePath, key) => {
     return baseURL.includes(basePath) && baseURL.some(i => i.startsWith(key))
   }
   // end api
@@ -56,4 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
     formModifier ? formModifier.onsubmit = () => confirm("voulez-vous vraiment modifier?") : "";
   }
 
+
+
+  
 });

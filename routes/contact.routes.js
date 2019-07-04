@@ -3,8 +3,8 @@ const nodemailer = require('nodemailer');
 
 const { redirectLogin } = require("../middlewares/auth.middleware");
 
-const userEmail = "haikel.fazzani@zoho.com";
-const pass = 'WxC 0702106';
+const userEmail = "ecprnaanouch@zoho.com";
+const pass = "@m1a2h3e4r5";
 
 /* GET contact page. */
 router.get('/', redirectLogin, (req, res) => res.render('contact', { data: userEmail }));
@@ -14,7 +14,6 @@ router.post('/', redirectLogin, (req, res) => {
 
   const { email, emailDest, sujet, message } = req.body;
 
-  // haikel.fazzanii@outlook.fr
   let transporter = nodemailer.createTransport({
     service: 'zoho',
     host: 'smtp.zoho.com',
