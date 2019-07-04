@@ -1,6 +1,6 @@
-window.onload = () => {
+document.addEventListener("DOMContentLoaded", () => {
 
-  const isLocalFetch = false;  
+  const isLocalFetch = true;  
   const modeFetch = isLocalFetch ? "http://localhost:3000/ventes/liste-ventes":
   "https://gestion-vente.herokuapp.com/ventes/liste-ventes";
 
@@ -11,6 +11,7 @@ window.onload = () => {
   fetch(modeFetch)
     .then(res => res.json())
     .then(data => {
+      let date = new Date(data[0].date_vente);
       let grpData = [];
 
       console.log(modeFetch)
@@ -55,4 +56,4 @@ window.onload = () => {
 
     })
     .catch(err => console.log(err))
-};
+});
