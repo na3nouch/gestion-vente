@@ -52,4 +52,25 @@ document.addEventListener("DOMContentLoaded", () => {
     typeWriter();
   }
 
+
+  // scroll top
+  window.onscroll = function () { scrollFunction() };
+
+  const btnScrollTop = document.getElementById("btn-scroll-top");
+
+  btnScrollTop.onclick = () => topFunction();
+
+  function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+      btnScrollTop.style.display = "block";
+    } else {
+      btnScrollTop.style.display = "none";
+    }
+  }
+
+  // When the user clicks on the button, scroll to the top of the document
+  function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  }
 });
