@@ -94,7 +94,6 @@ class VenteDao {
     const sql = `select * from ${venteTable.table} v 
     join clients c on v.id_client = c.client_id`;
     db.query(sql, (err, rows) => {
-      console.log(rows)
       resolve({ error: err ? err : "", result: err ? "" : rows });
     });
   }
