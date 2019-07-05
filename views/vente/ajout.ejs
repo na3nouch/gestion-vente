@@ -14,7 +14,9 @@
         <div class="col-md-6">
           <div class="form-group">
             <label for="libelle">libelle</label>
-            <input type="text" class="form-control" id="libelle" name="libelle" placeholder="Enter libelle" required>
+            <input type="text" class="form-control" 
+            pattern="[a-zA-Z0-9 ]*"
+            id="libelle" name="libelle" placeholder="Enter libelle" required>
 
           </div>
         </div>
@@ -22,7 +24,8 @@
         <div class="col-md-6">
           <div class="form-group">
             <label for="reference">reference</label>
-            <input type="text" class="form-control" id="reference" name="reference" placeholder="Entrer reference"
+            <input type="text" class="form-control" pattern="[a-zA-Z0-9\. ]*"
+            id="reference" name="reference" placeholder="Entrer reference"
               required>
           </div>
         </div>
@@ -33,7 +36,9 @@
           <!-- Quantite -->
           <div class="form-group">
             <label for="quantite">quantite</label>
-            <input type="number" class="form-control" id="quantite" name="quantite" placeholder="Entrer quantite"
+            <input type="number" class="form-control" 
+            pattern="[0-9]*"
+            id="quantite" name="quantite" placeholder="Entrer quantite"
               required>
           </div>
         </div>
@@ -42,6 +47,7 @@
           <div class="form-group">
             <label for="prixUnitaire">prix Unitaire</label>
             <input type="text" class="form-control" id="prixUnitaire" name="prixUnitaire"
+            pattern="[0-9\. ]*"
               placeholder="Entrer prix unitaire" required>
           </div>
         </div>
@@ -50,7 +56,9 @@
       <!-- total -->
       <div class="form-group">
         <label for="total-ajout">total</label>
-        <input type="text" class="form-control" id="total-ajout" name="total" placeholder="Entrer total" required>
+        <input type="text" class="form-control" 
+        pattern="[0-9\. ]*"
+        id="total-ajout" name="total" placeholder="Entrer total" required>
       </div>
 
       <!-- total -->
