@@ -13,25 +13,29 @@
 
       <div class="form-group">
         <label for="email">email</label>
-        <input type="text" class="form-control" id="email" name="email" value="<%= data %>" required>
+        <input type="text" 
+        class="form-control" id="email" name="email" value="<%= data %>" required>
 
       </div>
 
       <div class="form-group">
         <label for="emailDest">Pour</label>
-        <input type="email" class="form-control" id="emailDest" name="emailDest" placeholder="Entrer email destinateur"
+        <input type="email" 
+        class="form-control" id="emailDest" name="emailDest" placeholder="Entrer email destinateur"
           required>
       </div>
 
       <div class="form-group">
         <label for="sujet">sujet</label>
-        <input type="text" class="form-control" id="sujet" name="sujet" placeholder="Entrer sujet" required>
+        <input type="text" class="form-control" pattern="[a-zA-Z0-9 ]*" maxlength="20"
+        id="sujet" name="sujet" placeholder="Entrer sujet" required>
 
       </div>
 
       <div class="form-group">
         <label for="message">Message</label>
-        <textarea class="form-control msg-contact" id="message" name="message" rows="3"></textarea>
+        <textarea class="form-control msg-contact" maxlength="210"
+        id="message" name="message" rows="3"></textarea>
       </div>
 
       <button class="btn btn-warning float-right" type="submit">
