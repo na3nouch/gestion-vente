@@ -1,8 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-  const isLocalFetch = false;  
-  const modeFetch = isLocalFetch ? "http://localhost:3000/ventes/liste-ventes":
-  "https://gestion-vente-piece.herokuapp.com/ventes/liste-ventes";
+  const isLocalFetch = false;
+  const modeFetch = isLocalFetch ? "http://localhost:3000/ventes/liste-ventes" :
+    "https://gestion-vente-piece.herokuapp.com/ventes/liste-ventes";
 
   const months = [
     "jan", "fév", "mars", "avril", "mai", "juin", "juil", "août", "sep", "oct", "nov", "déc"
@@ -11,18 +11,17 @@ document.addEventListener("DOMContentLoaded", () => {
   fetch(modeFetch)
     .then(res => res.json())
     .then(data => {
-      console.log(modeFetch)
-      let date = new Date(data[0].date_vente);
-      let grpData = [];      
-
-      data.map((d, i) => {
-        let date = new Date(d.date_vente).getMonth();
-        let m = months[date];
-        grpData.push({ m, d });
-      });
 
       let result = data.reduce((a, c, i) => (v = months[new Date(c.date_vente).getMonth()],
-        a[v] ? a[v]++ : a[v] = 1, a), [])
+        a[v] ? a[v]++ : a[v] = 1, a), []);
+
+      let objNbVentes = [];
+
+      for (let i in result) {
+        objNbVentes.push({ n: result[i], m: i, indx: months.indexOf(i) })
+      }
+
+      objNbVentes = objNbVentes.sort((i, j) => i.indx - j.indx);
 
       let config = {
         "type": "line",
@@ -40,18 +39,13 @@ document.addEventListener("DOMContentLoaded", () => {
           "draggable": true,
           "drag-handler": "icon"
         },
-        "scale-x": { "values": Object.keys(result) },
+        "scale-x": { "values": objNbVentes.map(o => o.m) },
         "series": [
-          { "values": Object.values(result), "text": "nombre de vente" }
+          { "values": objNbVentes.map(o => o.n), "text": "nombre de vente" }
         ]
       }
 
-      zingchart.render({
-        id: 'myChart',
-        data: config,
-        height: '100%',
-        width: '100%'
-      });
+      zingchart.render({ id: 'myChart', data: config, height: '100%', width: '100%' });
 
     })
     .catch(err => console.log(err))
