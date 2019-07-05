@@ -8,13 +8,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   // end api
 
-  const btnStat = document.getElementById("btn-stat");
-  const myChart = document.getElementById("myChart");
-  myChart ? myChart.style.display = "none" : "";
-  btnStat ?
-    btnStat.onclick = () =>
-      myChart.style.display = myChart.style.display === "block" ? "none" : "block" : "";
-
   // top menu buttons - dropdown
   function toggle(parent, child) {
     const btn = document.querySelector(parent);
